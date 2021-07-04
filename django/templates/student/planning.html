@@ -1,0 +1,9 @@
+{% extends 'base.html'%}
+{% block content %}
+    <div class="p-5 text-center">
+        <p>Rendez-vous de l'eleve {{studentusername}} </p>
+        {% for planning in plannings %}
+            <p class="m-3">{{planning.date}} / {{planning.heure}} à {{planning.lieu}} {% for instructor in instructors %} {% if instructor.id == planning.id_instructor %} avec l'instructeur <b>{{instructor.username}}</b> {%endif%} {%endfor%}</p>
+        {% endfor %}
+    </div>
+{% endblock %}	

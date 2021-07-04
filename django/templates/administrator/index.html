@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% block title %}Administrateur{% endblock %}
+{% block content %}
+    <div class="p-5 text-center">
+        <h3 class="m-3">Liste des Secretaires</h3>
+        {% for user in secretarylist %}
+            <p class="m-3"><a href="/administrator/secretary/{{user.id}}">{{user.username}}</a></p>
+        {%endfor%}
+        <a class="btn btn-primary" href="/addsecretary/">add user</a>
+    </div>
+{% endblock %}

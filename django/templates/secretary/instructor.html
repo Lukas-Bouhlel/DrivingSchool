@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% block content %}
+    <div class="p-5 text-center">
+        <h3 class="m-3"> Fiche instructor </h3>
+        <p class="text-center">username: {{instructor.username}}</p>
+        <form class="" action="/deleteuser/" method="post">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit" name="username" value={{instructor.username}}>delete</button>
+        </form>
+        <h3>Liste des rendez-vous de l'instructeur</h3>
+        {% for planning in plannings %}
+            <p class="m-3">{{planning.date}} / {{planning.heure}} à {{planning.lieu}} avec l'élève <b>{% for user in studentslist %} {% if user.id == planning.id_student %} {{user.username}} {%endif%} {%endfor%}<a class="btn btn-danger btn-sm" href="/secretary/planning/delete/{{planning.id}}"> Delete</a>
+        {%endfor%}
+    </div>
+{% endblock %}

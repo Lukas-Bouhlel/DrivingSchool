@@ -1,0 +1,8 @@
+{% extends 'base.html'%}
+{% block content %}
+    <div class="p-5 text-center">
+        <h3 class="m-3"> Fiche étudiant </h3>
+        <p>username: {{student.username}}</p>
+        <a class="btn btn-primary" href="/instructor/form/{{student.id}}">creer un rdv</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% block content %}
+    <form class="text-center mt-5 mx-auto d-flex flex-column w-25" method='POST' action='/adduser/'>
+        {% csrf_token %}
+        {{form}}
+        <select class="form-control mt-1 mb-1" name="role">
+            <option value="Instructor">Instructor</option>
+            <option value="Student">Student</option>
+        </select>
+        <input class="btn btn-primary" type="submit" name="" value="Add">
+    </form>
+{% endblock %}

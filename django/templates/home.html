@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Homepage</h2>
+    <div>Welcome to Driving School, {% if user.is_authenticated %}{{ user.username }}
+        {%for group in user.groups.all%}
+            <p>Your status is {{group.name}} !</p>
+        {%endfor%}
+    {% else %}visitor !{% endif %}</div>
+{% endblock %}
